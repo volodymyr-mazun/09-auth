@@ -1,5 +1,7 @@
-'use client';
 
+// --------КОМПОНЕНТ МОДАЛЬНОГО ВІКНА--------
+
+'use client';
 import React, { useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';

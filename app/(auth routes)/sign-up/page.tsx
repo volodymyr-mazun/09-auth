@@ -1,10 +1,16 @@
-"use client";
 
+// ----------КОМПОНЕНТ ФОРМИ РЕЄСТРАЦІЇ КОРИСТУВАЧА-----------
+// форма з полями email і password
+// react-query (useMutation) для відправки запиту на бекенд (registerUser)
+// реєстрація успішна - зберігає користувача у Zustand (useAuthStore) і перенаправляє на /profile
+// сталася помилка - показує її повідомлення
+
+"use client";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "@/lib/api/clientApi";
-import { useAuthStore } from "@/lib/store/authStore";
+import { useAuthStore } from "@/lib/store/authStore";                         //глобальний Zustand store (зберігає юзера)
 import css from "./SignUpPage.module.css";
 
 interface ApiError {
@@ -13,8 +19,8 @@ interface ApiError {
 
 export default function SignUpPage() {
     const router = useRouter();
-    const setUser = useAuthStore((s) => s.setUser);
-    const [error, setError] = useState("");
+    const setUser = useAuthStore((s) => s.setUser);                          //зберігає користувача у Zustand після реєстрації
+    const [error, setError] = useState("");                                  //локальний стан для повідомлення про помилку
 
     const { mutate, isPending } = useMutation({
         mutationFn: ({ email, password }: { email: string; password: string }) =>
@@ -29,9 +35,9 @@ export default function SignUpPage() {
     });
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const fd = new FormData(e.currentTarget);
-        mutate({
+        e.preventDefault();                                                   //блокує перезавантаження сторінки
+        const fd = new FormData(e.currentTarget);                             //дістає email і password з полів
+        mutate({                                                              //запускає API-запит на реєстрацію
             email: String(fd.get("email") || ""),
             password: String(fd.get("password") || ""),
         });

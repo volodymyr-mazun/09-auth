@@ -1,3 +1,9 @@
+
+// ----------ОПТИМІЗАЦІЯ ЧЕРЕЗ HYDRATIONBOUNDARY----------
+// сервері отримує дані про нотатку (sFetchNoteById)
+// генерації метаданих (generateMetadata)
+// попереднього завантаження (prefetch)
+
 import { HydrationBoundary, dehydrate, QueryClient } from "@tanstack/react-query";
 import NoteDetailsClient from "./NoteDetails.client";
 import type { Metadata } from "next";

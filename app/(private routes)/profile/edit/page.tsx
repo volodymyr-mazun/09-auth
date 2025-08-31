@@ -1,5 +1,12 @@
-"use client";
 
+// ---------КОМПОНЕНТ РЕДАГУВАННЯ ПРОФІЛЮ КОРИСТУВАЧА----------
+// дані користувача з глобального Zustand-стору (useAuthStore)
+// відображаємо форму з аватаром, ім’ям і email.
+// натискання Save - відправляємо запит на бекенд (updateUser)
+// успіх - оновлюємо глобальний стейт і редіректимо на /profile
+// помилка - показуємо повідомлення
+
+"use client";
 import { FormEvent, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";

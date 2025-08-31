@@ -1,5 +1,13 @@
-'use client';
 
+
+// ---------КОМПОНЕНТ КЛІЄНТСЬКИЙ,ДЕТАЛІ ОДНІЄЇ НОТАТКИ--------
+// id нотатки з URL (/notes/[id])
+// завантажуємо дані цієї нотатки з бекенду (fetchNoteById)
+// дані вантажаться -  "Loading..."
+// помилка - "Something went wrong"
+// успішно - рендеримо заголовок, текст і дату створення
+
+'use client';
 import css from './NoteDetails.module.css';
 import { useParams, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';

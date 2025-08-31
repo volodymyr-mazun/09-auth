@@ -1,5 +1,9 @@
-"use client";
 
+// --------КОМПОНЕНТ NOTESCLIENT--------
+// дозволяє шукати нотатки (SearchBox), перегортати сторінки (Pagination)
+// React Query для завантаження даних із API (fetchNotes)
+
+"use client";
 import { useState, useMemo } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useDebounce } from "use-debounce";

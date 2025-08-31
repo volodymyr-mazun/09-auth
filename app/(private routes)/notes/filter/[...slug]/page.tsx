@@ -1,3 +1,9 @@
+
+// ----------ОБГОРТКА ДЛЯ NOTES CLIENT----------
+// встановлює метадані
+// передає кешовані дані клієнтському компоненту NotesClient
+// NotesClient, відображає нотатки без додаткового запиту
+
 import { Metadata } from "next";
 import { QueryClient, dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import NotesClient from "./Notes.client";

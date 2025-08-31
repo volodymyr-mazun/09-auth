@@ -1,9 +1,13 @@
-"use client";
 
+// -----------КОМПОНЕНТ ФОРМИ ВХОДУ (EMAIL + PASSWORD)-----------
+// react-query (useMutation) для відправки даних на бекенд
+// логін успішний - зберігає користувача у Zustand-сторі та робить редірект
+
+"use client";
 import { FormEvent, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "@/lib/api/clientApi";
+import { loginUser } from "@/lib/api/clientApi";                                        //глобальний Zustand store для збереження користувача
 import { useAuthStore } from "@/lib/store/authStore";
 import css from "./SignInPage.module.css";
 
@@ -14,17 +18,17 @@ interface ApiError {
 export default function SignInPage() {
     const router = useRouter();
     const sp = useSearchParams();
-    const rawFrom = sp.get("from");
+    const rawFrom = sp.get("from");                                                     //шлях, куди перенаправити після логіну
     const from = rawFrom ? decodeURIComponent(rawFrom) : "/profile";
 
-    const setUser = useAuthStore((s) => s.setUser);
+    const setUser = useAuthStore((s) => s.setUser);                                     //зберігає користувача після логіну
     const [error, setError] = useState("");
 
     const { mutate, isPending } = useMutation({
-        mutationFn: ({ email, password }: { email: string; password: string }) =>
+        mutationFn: ({ email, password }: { email: string; password: string }) =>       //викликає loginUser(email, password)
             loginUser(email, password),
         onSuccess: (user) => {
-            setUser(user);
+            setUser(user);                                                              //зберігає користувача після логіну
             router.replace(from);
         },
         onError: (err: ApiError) => {
