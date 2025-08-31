@@ -1,5 +1,9 @@
-"use client";
 
+// ----------КОМПОНЕНТ ВІДПОВІДАЄ ЗА ПЕРЕВІРКУ КОРИСТУВАЧА НА АВТОРИЗАЦІЮ----------
+// користувач є — зберігає його дані в глобальному стейті
+// користувача немає — очищає стейт і перенаправляє на /sign-in
+
+"use client";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { getSession, logoutUser } from "@/lib/api/clientApi";
@@ -7,7 +11,7 @@ import { useAuthStore } from "@/lib/store/authStore";
 
 type Props = { children: React.ReactNode };
 
-const isPrivatePath = (p: string) => p.startsWith("/notes") || p.startsWith("/profile");
+const isPrivatePath = (p: string) => p.startsWith("/notes") || p.startsWith("/profile");  //перевірка чи шлях приватний, для доступу потрібна авторизація
 
 export default function AuthProvider({ children }: Props) {
     const router = useRouter();
@@ -20,7 +24,7 @@ export default function AuthProvider({ children }: Props) {
 
         (async () => {
             try {
-            const user = await getSession();
+                const user = await getSession();
 
             if (!active) return;
 

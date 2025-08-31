@@ -1,3 +1,6 @@
+
+// -----------КОМПОНЕНТ ВИВОДИТЬ ПОВІДОМЛЕННЯ ЗАВАНТАЖЕННЯ-----------
+
 import css from "./Loading.module.css";
 
 export default function Loading() {

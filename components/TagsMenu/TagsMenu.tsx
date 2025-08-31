@@ -1,10 +1,15 @@
+
+// ----------ВИПАДАЮЧЕ МЕНЮ З ТЕГАМИ---------
+// клік на тег — переходить на сторінку /notes/filter/{tag}
+// закриває меню, якщо користувач клацнув поза ним
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import css from "./TagsMenu.module.css";
 
-const TAGS = [
+const TAGS = [                       //список категорій
     "All",
     "Work",
     "Personal",

@@ -1,5 +1,7 @@
-'use client';
 
+// ----------КОМПОНЕНТ РЕНДЕРИТЬ HEADER-----------
+
+'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import AuthNavigation from '../AuthNavigation/AuthNavigation';

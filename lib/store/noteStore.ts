@@ -1,3 +1,10 @@
+
+// --------ФАЙЛ, СТВОРЕННЯ ГЛОБАЛЬНОГО СТАНУ ДЛЯ РОБОТИ З НОТАТКОЮ----------
+// зберігає чернетку нотатки (draft → title, content, tag)
+// дозволяє оновлювати чернетку (setDraft)
+// дозволяє очищати  (clearDraft)
+// автоматично зберігає стан у localStorage завдяки persist
+
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import type { NoteTag } from "@/types/note";

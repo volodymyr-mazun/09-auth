@@ -1,3 +1,7 @@
+
+// ---------TanStackProvider--------
+// глобальний провайдер для React Query
+
 "use client";
 import { useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";

@@ -1,3 +1,9 @@
+
+// --------КОМПОНЕНТ ФОРМИ ПОШУКУ, ЗА КЛЮЧОВИМ СЛОВОМ----------
+// при зміні інпута оновлює query
+// поле порожнє - показує помилку
+// є текст - викликає onChange(query) і очищає інпут
+
 import css from "./SearchBox.module.css";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";

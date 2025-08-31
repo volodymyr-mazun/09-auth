@@ -1,3 +1,9 @@
+
+// ----------- КОМПОНЕНТ РЕНДЕРИТЬ ОДНУ НОТАТКУ------------
+// приймає масив нотаток через пропси
+// використовує React Query (useMutation) для видалення нотатки
+// оновлює список
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { Note } from "../../types/note";
 import css from "./NoteList.module.css";

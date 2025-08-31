@@ -1,4 +1,8 @@
 
+// ---------ФАЙЛ, ДОДАЄ COOKIES ВРУЧНУ---------
+// дозволяє на SSR отримувати дані користувача, його сесію та нотатки
+// робить запити до тих самих ендпоінтів бекенду (/auth/session, /users/me, /notes), але в контексті сервера
+
 import api from "./api";
 import { cookies } from "next/headers";
 import type { AxiosResponse } from "axios";

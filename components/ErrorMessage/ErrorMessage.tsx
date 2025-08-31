@@ -1,3 +1,6 @@
+
+// ---------КОМПОНЕНТ ПОКАЗУЄ ПОВІДОМЛЕННЯ НА ПОМИЛКУ----------
+
 import css from "./ErrorMessage.module.css";
 
 interface ErrorMessageProps {

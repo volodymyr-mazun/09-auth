@@ -1,4 +1,8 @@
 
+// --------ФАЙЛ, МІСТИТЬ ГОТОВІ ФУНКЦІЇ ДЛЯ АВТОРИЗАЦІЇ---------
+// функції для роботи з користувачем (getMe, updateUser)
+// функції для роботи з нотатками (fetchNotes, fetchNoteById, createNote, deleteNote)
+
 import api from "./api";
 import { User } from "@/types/user";
 import { Note, CreateNotePayload } from "@/types/note";
@@ -8,7 +12,7 @@ export interface NotesHttpResponse {
     totalPages: number;
 }
 
-
+// -------АВТОРИЗАЦІЯ--------
 export async function registerUser(email: string, password: string): Promise<User> {
     const { data } = await api.post<User>("/auth/register", { email, password });
     return data;
@@ -33,7 +37,7 @@ export async function checkClientSession(): Promise<boolean> {
     return Boolean(user);
 }
 
-
+// ---------РОБОТА З ПРОФІЛЕМ-------
 export async function getMe(): Promise<User> {
     const { data } = await api.get<User>("/users/me");
     return data;
@@ -43,12 +47,8 @@ export async function updateUser(payload: { username?: string; email?: string })
     return data;
 }
 
-export async function fetchNotes(params: {
-    search?: string;
-    page?: number;
-    perPage?: number; 
-    tag?: string;
-}): Promise<NotesHttpResponse> {
+// --------НОТАТКИ-------
+export async function fetchNotes(params: { search?: string; page?: number; perPage?: number; tag?: string; }): Promise<NotesHttpResponse> {
     const { tag, ...rest } = params ?? {};
     const finalParams = { ...rest, ...(tag && tag !== "All" ? { tag } : {}) };
 

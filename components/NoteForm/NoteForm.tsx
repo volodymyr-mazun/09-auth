@@ -1,16 +1,25 @@
-'use client';
 
+// -----------КОМПОНЕНТ РОЗМІТКИ МОДАЛЬНОГО ВІКНА-----------
+// керує введенням даних через глобальний store
+// при сабміті створює нотатку через createNote
+// оновлює список нотаток, очищає форму, закриває вікно.
+
+'use client';
 import { useRouter } from 'next/navigation';
 import css from './NoteForm.module.css';
-import { useNoteStore } from '@/lib/store/noteStore';
+import { useNoteStore } from '@/lib/store/noteStore';                    //Zustand store для чернетки
 import type { NoteTag, CreateNotePayload } from '@/types/note';
-import { createNote } from '@/lib/api/clientApi';              
+import { createNote } from '@/lib/api/clientApi';                        //функція API для створення нотатки
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export default function NoteForm() {
     const router = useRouter();
     const queryClient = useQueryClient();
-    const { draft, setDraft, clearDraft } = useNoteStore();
+    const { draft, setDraft, clearDraft } = useNoteStore();  
+    
+// draft - поточна чернетка (title, content, tag)
+// setDraft - оновлення чернетки при введенні
+// clearDraft - очищення чернетки після збереження
 
     const { mutate, isPending } = useMutation({
         mutationFn: createNote,

@@ -1,4 +1,9 @@
 
+// ----------КОМПОНЕНТ СТВОРЮЄ ДИНАМІЧНЕ ПЕРЕМИКАННЯ МІЖ СТОРІНОК----------
+// pageCount — скільки всього сторінок
+// currentPage — яка сторінка зараз активна
+// onPageChange — функція, що викликається при зміні сторінки
+
 import ReactPaginate from 'react-paginate';
 import css from './Pagination.module.css';
 

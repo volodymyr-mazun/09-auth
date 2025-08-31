@@ -1,3 +1,6 @@
+
+// ----------КОМПОНЕНТ, ВИВОДИТЬ ПОВІДОМЛЕННЯ ПРО ВІДСУТНІСТЬ НОТАТКИ----------
+
 import css from "./ErrorMessageEmpty.module.css";
 
 export function ErrorMessageEmpty() {
